@@ -3,6 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { getLaunches } from '../../actions/launchesActions'
+import Card from '../Card'
 
 
 // const imgStyle = {
@@ -16,37 +17,35 @@ class Launches extends React.Component {
     super(props);
     this.state = { hover: false };
   }
-componentDidMount() {
-  this.props.getLaunches();
+
+componentDidMount(){
+  this.props.getLaunches()
 }
 
-// const launchesStyle = {
-//   width: '50%',
-//   margin: '0 auto',
-//   color: 'olive'
-// }
-// const errorMessage = {
-//   color: 'red'
-// }
+render(){
 
-render(launches){
-console.log('==>>', launches)
-  return (launches ?
-     (<div >
+  const launches = this.props.launches
+  const allLaunches = launches || [];
+  const displayAllLaunches = allLaunches.map(launch => (
+    <Card
+     launchName={launch.mission_name}
+    />
+  ));
+  
+  return (
+  launches ?
+     <div >
       {launches.error && <h2>{launches.error}</h2>}
-      {launches.mission_name && <div>
-        <h1>{launches.launch_year}</h1>
-        {/* <img style={imgStyle} src={launches.urlToImage} alt="" /> */}
-        {/* <h2>{launches.description}</h2> */}
-        {/* <a href={launches.url} target="_blank">READ MORE</a> */}
-      </div>}
-    </div> ) :
-    'null')
+      {launches && displayAllLaunches}
+      </div>
+    :
+    null
+    )
       };
       }
 
 const mapStateToProps = (state) => ({
-  launches: state.Launches,
+  launches: state.launches,
 })
 
 Launches = connect(
