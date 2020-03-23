@@ -8,12 +8,13 @@ import { BrowserRouter } from "react-router-dom";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { logger } from "redux-logger";
-import rootReducer from "./reducers/rootReducer";
+import reducer from "./reducers/reducer";
+// import rootReducer from "./reducers/rootReducer";
 import rootSaga from "./sagas";
 
 const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(rootReducer,
+const store = createStore(reducer,
 applyMiddleware(sagaMiddleware, logger));
 
 sagaMiddleware.run(rootSaga);
