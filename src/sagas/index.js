@@ -30,7 +30,7 @@ function* fetchHistories() {
 	}
 }
 
-function* fetchSingleHistories(action) {
+function* fetchSingleHistory(action) {
 	try {
 		const json = yield fetch(
 			`https://api.spacexdata.com/v3/history/${action.payload.id}`,
@@ -54,7 +54,7 @@ function* HistoryActionWatcher() {
 }
 
 function* SingleHistoryActionWatcher() {
-	yield takeLatest("GET_SINGLE_HISTORY", fetchSingleHistories);
+	yield takeLatest("GET_SINGLE_HISTORY", fetchSingleHistory);
 }
 
 export default function* rootSaga() {

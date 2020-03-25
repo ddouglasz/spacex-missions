@@ -5,12 +5,17 @@ import { Link } from "react-router-dom";
 // import { getSingleHistory } from '../actions/historyActions'
 
 
-const Card = ({ page, launchName, eventDate, eventDescription, history_id }) => {
+const Card = ({ page, launchName, eventDate, eventDescription, history_id, showModal }) => {
+	
 	if (page === "launch") {
 		return (
 			<>
-				<div id="" className="">
+				<div id="" className="" >
 					{launchName}
+					
+					<button onClick={e => {showModal()}}> 
+					show Modal
+					</button>
 				</div>
 			</>
 		);

@@ -23,10 +23,10 @@ class HistoryInfo extends React.Component {
 				<h1>Links to further information</h1>
 				<ul>
 					<li>
-						<a href={getHistory.reddit}>Reddit</a>
+						<a href={getHistory.links.reddit}>Reddit</a>
 					</li>
 					<li>
-						<a href={getHistory.article}>Article</a>
+						<a href={getHistory.links.article}>Article</a>
 					</li>
 					<li>
 						<a href={getHistory.links.wikipedia}>Wikipedia</a>
@@ -41,7 +41,6 @@ const mapStateToProps = state => ({
 	single_history: state.single_history,
 });
 
-// export default HistoryInfo
 export default connect(mapStateToProps, {
 	getSingleHistory,
 })(HistoryInfo);
