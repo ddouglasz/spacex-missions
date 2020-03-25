@@ -2,8 +2,6 @@ import { put, takeLatest, all } from "redux-saga/effects";
 
 function* fetchLaunches() {
 	try {
-		// const user = yield call(Api.fetchUser, action.payload.userId);
-		// yield put({type: "USER_FETCH_SUCCEEDED", user: user});
 		const json = yield fetch(
 			"https://api.spacexdata.com/v3/launches",
 		).then(response => response.json());
@@ -19,14 +17,27 @@ function* fetchLaunches() {
 
 function* fetchHistories() {
 	try {
-		// const user = yield call(Api.fetchUser, action.payload.userId);
-		// yield put({type: "USER_FETCH_SUCCEEDED", user: user});
 		const json = yield fetch(
 			"https://api.spacexdata.com/v3/history",
 		).then(response => response.json());
 
 		yield put({
 			type: "HISTORY_RECEIVED",
+			json: json || [{ error: json.message }],
+		});
+	} catch (e) {
+		yield put({ type: "HISTORY_FETCH_FAILED", message: e.message });
+	}
+}
+
+function* fetchSingleHistories(action) {
+	try {
+		const json = yield fetch(
+			`https://api.spacexdata.com/v3/history/${action.payload.id}`,
+		).then(response => response.json());
+
+		yield put({
+			type: "SINGLE_HISTORY_RECEIVED",
 			json: json || [{ error: json.message }],
 		});
 	} catch (e) {
@@ -42,6 +53,10 @@ function* HistoryActionWatcher() {
 	yield takeLatest("GET_HISTORY", fetchHistories);
 }
 
+function* SingleHistoryActionWatcher() {
+	yield takeLatest("GET_SINGLE_HISTORY", fetchSingleHistories);
+}
+
 export default function* rootSaga() {
-	yield all([launchActionWatcher(), HistoryActionWatcher()]);
+	yield all([launchActionWatcher(), HistoryActionWatcher(), SingleHistoryActionWatcher()]);
 }

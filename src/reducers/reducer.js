@@ -6,12 +6,20 @@ const reducer = (state = {}, action) => {
 			return { ...state, launches: action.json, loading: false };
 		case "LAUNCH_FETCH_FAILED":
 			return { ...state, launches: action.json, loading: false };
+			
 		case "GET_HISTORY":
 			return { ...state, loading: true };
 		case "HISTORY_RECEIVED":
 			return { ...state, history: action.json, loading: false };
 		case "HISTORY_FETCH_FAILED":
 			return { ...state, history: action.json, loading: false };
+			
+		case "GET_SINGLE_HISTORY":
+			return { ...state, loading: true };
+		case "SINGLE_HISTORY_RECEIVED":
+      return { ...state, single_history: action.json, loading: false };
+		case "SINGLE_HISTORY_FETCH_FAILED":
+			return { ...state, single_history: action.json, loading: false };
 		default:
 			return state;
 	}

@@ -17,7 +17,13 @@ class History extends React.Component {
 		const history = this.props.history;
 		const allLhistory = history || [];
 		const displayAllHistories = allLhistory.map(history => (
-			<Card launchTitle={history.title} />
+			<Card 
+			eventDate={history.event_date_utc} 
+			eventDescription={history.details} 
+			history_id={history.id} 
+			key={history.id}
+			page='history'
+			/>
 		));
 
 		return history ? (
