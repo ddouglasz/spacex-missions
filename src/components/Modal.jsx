@@ -1,7 +1,5 @@
 import React from "react";
-import styled from 'styled-components'
-
-
+import styled from "styled-components";
 
 const StyledModal = styled.div`
 	position: fixed;
@@ -15,46 +13,52 @@ const StyledModal = styled.div`
 	background: #000;
 	opacity: 0.85;
 	display: flex;
-	justify-content: center; 
+	justify-content: center;
 	align-items: center;
-	
-	
+
 	.inner {
-		
 		padding: 1rem;
 		border-radius: 1rem;
 		background: #fff;
 		width: 30rem;
 		opacity: 1;
-		
-		
-	
 	}
 `;
-
 
 class Modal extends React.Component {
 	onClose = e => {
 		this.props.onClose && this.props.onClose(e);
 	};
-	  
+
 	render() {
 		if (!this.props.show) {
 			return null;
 		}
 		return (
-			
-		  <StyledModal>
-			  <div className="inner">
-	        <h2>Modal Window</h2>
-	        <div class="content">{this.props.children}</div>
-	        <div class="actions">
-	          <button class="toggle-button" onClick={this.onClose}>
-	            close
-	          </button>
-	        </div>
-			  </div>
-      </StyledModal>
+			<StyledModal>
+				<div className="inner">
+					<h2>Modal Window</h2>
+					<div>{this.props.children}</div>
+					<div>
+						<h1>Select information to share</h1>
+						<input type="checkbox" id="" name="" value="" />
+						<label for="">Jesus</label>
+						<br />
+						<input type="checkbox" id="" name="" value="" />
+						<label for=""> {}</label>
+						<br />
+						<input type="checkbox" id="" name="" value="" />
+						<label for="vehicle3"> {}</label>
+						<br />
+						<br />
+						<input type="submit" value="Send" />
+						
+						<button className="toggle-button" onClick={this.onClose}>
+							close
+						</button>
+					</div>
+				</div>
+			</StyledModal>
 		);
 	}
 }

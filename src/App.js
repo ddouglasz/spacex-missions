@@ -7,8 +7,6 @@ import History from "./pages/History";
 import Loading from './components/Loading';
 import NavBar from "./components/NavBar";
 import Modal from './components/Modal';
-// import Button from './conponents/Button'
-// import './App.css';
 
 function App() {
 	return (

@@ -15,14 +15,14 @@ const StyledCard = styled.div`
 `;
 
 
-const LaunchCard = ({ launchName, showModal }) => {
+const LaunchCard = ({ launchName, showModal, id }) => {
 	
 		return (
 			<StyledCard>
 				<div id="" className="" >
 					{launchName}		
 				</div>
-				<Button onClick={e => {showModal()}}> 
+				<Button onClick={e => {showModal(id)}}> 
 					More info
 				</Button>
 			</StyledCard>

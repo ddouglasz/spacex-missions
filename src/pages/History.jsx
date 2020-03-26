@@ -43,7 +43,6 @@ class History extends React.Component {
 			 <StyledHistory>
 			  	{history.error && <h2>{history.error}</h2>}
 			  	{history && displayAllHistories}
-			  	{console.log(history)}
 			  </StyledHistory>
     ) : null;
 	}

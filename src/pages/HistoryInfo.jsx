@@ -8,7 +8,7 @@ import { getSingleHistory } from "../actions/historyActions";
 
 const StyledHistoryInfo = styled.div`
 	background: lightblue;
-	height: 90vh;
+	height: 81vh;
 	padding: 2rem 5rem;
 	
 `

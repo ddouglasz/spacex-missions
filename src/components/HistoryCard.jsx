@@ -35,9 +35,9 @@ const HistoryCard = ({
 			<div className="decription">
 				<strong>Event description</strong>: {eventDescription}
 			</div>
-			<div id="" className="">
+			<small id="" className="">
 				{eventDate}
-			</div>
+			</small>
 			<div id="" className=""></div>
 			</div>
 			<Link to={`/History/${history_id}`} id="">

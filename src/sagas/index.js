@@ -15,6 +15,21 @@ function* fetchLaunches() {
 	}
 }
 
+function* fetchSingleLaunch(action) {
+	try {
+		const json = yield fetch(
+			`https://api.spacexdata.com/v3/launches/${action.payload.id}`,
+		).then(response => response.json());
+
+		yield put({
+			type: "SINGLE_LAUNCH_RECEIVED",
+			json: json || [{ error: json.message }],
+		});
+	} catch (e) {
+		yield put({ type: "SINGLE_LAUNCH_FETCH_FAILED", message: e.message });
+	}
+}
+
 function* fetchHistories() {
 	try {
 		const json = yield fetch(
@@ -57,6 +72,14 @@ function* SingleHistoryActionWatcher() {
 	yield takeLatest("GET_SINGLE_HISTORY", fetchSingleHistory);
 }
 
+function* SingleLaunchActionWatcher() {
+	yield takeLatest("GET_SINGLE_LAUNCH", fetchSingleLaunch);
+}
+
 export default function* rootSaga() {
-	yield all([launchActionWatcher(), HistoryActionWatcher(), SingleHistoryActionWatcher()]);
+	yield all([
+	launchActionWatcher(),
+	HistoryActionWatcher(),
+	SingleHistoryActionWatcher(),
+	SingleLaunchActionWatcher()]);
 }
