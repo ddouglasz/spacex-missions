@@ -4,15 +4,20 @@ import styled from 'styled-components'
 
 const StyledNavBar  = styled.div`
 	display: flex;
-	background: lightblue;
+	color: #fff;
+	/* background: #4b5256; */
 	
 	a {
 		text-decoration: none;
 	}
 	
+	h1 {
+		color: #fff;
+	}
+	
 	.nav {
 		padding: 2rem;
-		background: blue;
+		background-color: white;
 		width: 50%;
 		display: flex;
 		justify-content: center;
@@ -21,14 +26,13 @@ const StyledNavBar  = styled.div`
 	}
 	
 	.history {
-		background: lightgoldenrodyellow;
+		background: linear-gradient(45deg,#1f3059,#1b2a4e 40%,#243869);
 
 
 	}
 	
 	.launches {
-		background: orange;
-
+		background: linear-gradient(45deg,#1f3059,#1b2a4e 40%,#243869);
 	}
 	
 	
@@ -39,12 +43,12 @@ const NavBar = () => {
 		<StyledNavBar>
 			<div className="nav history">
 				<Link to="/History" className="">
-					<span>HISTORY PAGE</span>
+					<span><h1>HISTORY PAGE</h1></span>
 				</Link>
 			</div>
 			<div className="nav launches">
 				<Link to="/Launches" className="">
-					<span>LAUNCH PAGE</span>
+					<span><h1>LAUNCH PAGE</h1></span>
 				</Link>
 			</div>
 		</StyledNavBar>

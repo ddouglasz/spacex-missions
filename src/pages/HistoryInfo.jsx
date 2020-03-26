@@ -7,9 +7,13 @@ import { getSingleHistory } from "../actions/historyActions";
 
 
 const StyledHistoryInfo = styled.div`
-	background: lightblue;
+	background: #fff;
 	height: 81vh;
 	padding: 2rem 5rem;
+	
+	.history-info {
+		margin: 5px;
+	}
 	
 `
 
@@ -25,12 +29,13 @@ class HistoryInfo extends React.Component {
 
 		return history ? (
 			<StyledHistoryInfo>
-				<div>Id: {getHistory.id}</div>
-				<div>Title: {getHistory.title}</div>
-				<div>Event Date: {getHistory.event_date_utc}</div>
-				<div>Flight Number: {getHistory.flight_number}</div>
-				<div>Details: {getHistory.details}</div>
-				<h1>Links to further information</h1>
+				<h1>History Information</h1>
+				<div className="history-info"><strong>Id:</strong> {getHistory.id}</div>
+				<div className="history-info"><strong>Title:</strong> {getHistory.title}</div>
+				<div className="history-info"><strong>Event Date:</strong> {getHistory.event_date_utc}</div>
+				<div className="history-info"><strong>Flight Number:</strong> {getHistory.flight_number}</div>
+				<div className="history-info"><strong>Details:</strong> {getHistory.details}</div>
+				<h1 className="history-info">Links to further information</h1>
 				<ul>
 					<li>
 						<a href={getHistory.links.reddit}>Reddit</a>

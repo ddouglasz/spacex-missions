@@ -6,13 +6,23 @@ import styled from "styled-components";
 
 
 const StyledHistory = styled.div`
-	background: ${ props => props.show ? "grey" : "lightblue"};
+	background: ${ props => props.show ? "grey" : "#0b0b0b"};
+	color: #161c2d;
 	position: relative;
 	padding: 1rem;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
+	color: #ffff;
+
+	.scroll {
+    overflow: scroll;
+    height: 78vh;
+    top: 5rem;
+    width: 70%;
+    
+  }
 
 `;
 
@@ -42,7 +52,9 @@ class History extends React.Component {
 		return history ? (
 			 <StyledHistory>
 			  	{history.error && <h2>{history.error}</h2>}
+			  	<div className="scroll">
 			  	{history && displayAllHistories}
+			  	</div>
 			  </StyledHistory>
     ) : null;
 	}

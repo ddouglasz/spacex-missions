@@ -4,8 +4,7 @@ import styled from "styled-components";
 
 const StyledCard = styled.div`
 	display: flex; 
-	width: 80%;
-	background: pink;
+	background: linear-gradient(45deg,#1f3059,#1b2a4e 40%,#243869);
 	margin-bottom: 1rem;
 	padding: 1rem;
 	display: flex;

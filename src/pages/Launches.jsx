@@ -8,33 +8,51 @@ import Modal from "../components/Modal";
 import LaunchCard from "../components/LaunchCard";
 
 const StyledLaunches = styled.div`
-	background: ${props => (props.show ? "grey" : "lightblue")};
+	background: ${props => (props.show ? "grey" : "#0b0b0b")};
+	color: #161c2d;
 	position: relative;
 	padding: 1rem;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
+	color: #ffff;
+
+
+	.search-options, input[type="text" ] {
+		padding: 6px;
+		margin-top: 8px;
+		margin-bottom: 8px;
+		font-size: 17px;
+		border: none;
+		outline: none;
+
+	}
 	
- input[type=text] {
-    padding: 6px;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    font-size: 17px;
-    border: none;
- }
- 
-  .search-container button {
-    float: right;
-    padding: 6px 10px;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    margin-right: 16px;
-    background: #ddd;
-    font-size: 17px;
-    border: none;
-    cursor: pointer;
-}
+ .search-options {
+		height: 4vh;
+	}
+
+	.search-container button {
+		float: right;
+		padding: 6px 10px;
+		margin-top: 8px;
+		margin-bottom: 8px;
+		margin-right: 16px;
+		background: #ddd;
+		font-size: 17px;
+		border: none;
+		cursor: pointer;
+	}
+	
+	.scroll {
+    overflow: scroll;
+    height: 72vh;
+    top: 5rem;
+    text-align: center;
+    width: 70%;
+    
+  }
 `;
 
 class Launches extends React.Component {
@@ -77,6 +95,10 @@ class Launches extends React.Component {
 			<StyledLaunches show={show}>
 				<div className="search-container">
 					<form action="">
+						<select id="" className="search-options">
+							<option value="date">Search by Date</option>
+							<option value="name">Search by name</option>
+						</select>
 						<input type="text" placeholder="Search.." name="search" />
 						<button type="submit">
 							<i className="fa fa-search"></i>
@@ -91,7 +113,9 @@ class Launches extends React.Component {
 						mission_name: {LaunchDetail.mission_name}
 					</div>
 				</Modal>
+				<div className="scroll">
 				{launches && displayAllLaunches}
+				</div>
 			</StyledLaunches>
 		) : null;
 	}
