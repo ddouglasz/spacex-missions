@@ -1,9 +1,9 @@
 import React from "react";
 import { Route, Switch } from "react-router";
 
-import HistoryInfo from './components/pages/HistoryInfo';
-import Launches from "./components/pages/Launches";
-import History from "./components/pages/History";
+import HistoryInfo from './pages/HistoryInfo';
+import Launches from "./pages/Launches";
+import History from "./pages/History";
 import Loading from './components/Loading';
 import NavBar from "./components/NavBar";
 import Modal from './components/Modal';
@@ -12,7 +12,7 @@ import Modal from './components/Modal';
 
 function App() {
 	return (
-		<div className="App">
+		<div >
 			{/* <Button /> */}
 			<NavBar />
 			<Loading />

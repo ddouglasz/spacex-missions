@@ -1,7 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
+import styled from 'styled-components'
 
-import { getSingleHistory } from "../../actions/historyActions";
+
+import { getSingleHistory } from "../actions/historyActions";
+
+
+const StyledHistoryInfo = styled.div`
+	background: lightblue;
+	height: 90vh;
+	padding: 2rem 5rem;
+	
+`
 
 class HistoryInfo extends React.Component {
 	componentDidMount() {
@@ -14,7 +24,7 @@ class HistoryInfo extends React.Component {
 		const getHistory = history || {};
 
 		return history ? (
-			<>
+			<StyledHistoryInfo>
 				<div>Id: {getHistory.id}</div>
 				<div>Title: {getHistory.title}</div>
 				<div>Event Date: {getHistory.event_date_utc}</div>
@@ -32,7 +42,7 @@ class HistoryInfo extends React.Component {
 						<a href={getHistory.links.wikipedia}>Wikipedia</a>
 					</li>
 				</ul>
-			</>
+			</StyledHistoryInfo>
 		) : null;
 	}
 }
