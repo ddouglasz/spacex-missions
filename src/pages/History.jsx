@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { getHistory } from "../actions/historyActions";
 import HistoryCard from "../components/HistoryCard";
 import styled from "styled-components";
-
+import Loading from '../components/Loading'
 
 const StyledHistory = styled.div`
 	background: ${ props => props.show ? "grey" : "#0b0b0b"};
@@ -48,6 +48,10 @@ class History extends React.Component {
 			key={history.id}
 			/>
 		));
+		
+		if(displayAllHistories.length === 0) {
+			return <Loading />
+		}
 
 		return history ? (
 			 <StyledHistory>
@@ -56,7 +60,7 @@ class History extends React.Component {
 			  	{history && displayAllHistories}
 			  	</div>
 			  </StyledHistory>
-    ) : null;
+    ) : null
 	}
 }
 

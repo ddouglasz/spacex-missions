@@ -1,14 +1,20 @@
-import React from 'react';
+import React from 'react'
 import { connect } from 'react-redux'
+import styled from 'styled-components'
 import img from '../loading_spinner.gif'
+
+const StyledLoading = styled.div`
+  height: 30vh;
+`;
 
 let Laoading = ({ loading }) => (
 
+
   loading ?
-    <div style={{ textAlign: 'center' }}>
+    <StyledLoading style={{ textAlign: 'center' }}>
       <img src={img} alt='loading' />
       <h1>LOADING</h1>
-    </div> :
+    </StyledLoading> :
     null
 );
 

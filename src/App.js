@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router";
+import { Route, Switch, Redirect } from "react-router";
 
 import HistoryInfo from './pages/HistoryInfo';
 import Launches from "./pages/Launches";
@@ -13,8 +13,9 @@ function App() {
 		<div >
 			{/* <Button /> */}
 			<NavBar />
-			<Loading />
+			{/* <Loading /> */}
 			<Switch>
+				<Route path="/" exact render={() => <Redirect to="/history" /> } />
 				<Route path="/Launches" exact component={Launches} />
 				<Route path="/Launches/:id" exact component={Modal} />
 				<Route path="/History" exact component={History} />

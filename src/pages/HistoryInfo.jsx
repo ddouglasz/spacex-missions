@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import styled from 'styled-components'
+import Loading from '../components/Loading'
 
 
 import { getSingleHistory } from "../actions/historyActions";
@@ -25,8 +26,11 @@ class HistoryInfo extends React.Component {
 
 	render() {
 		const history = this.props.single_history;
-		const getHistory = history || {};
-
+		const getHistory = history || [];
+		
+		if(getHistory.length === 0 ){
+			return (<Loading />)
+		}
 		return history ? (
 			<StyledHistoryInfo>
 				<h1>History Information</h1>

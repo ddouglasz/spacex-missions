@@ -21,7 +21,7 @@ const StyledModal = styled.div`
 		border-radius: 1rem;
 		background: linear-gradient(45deg,#1f3059,#1b2a4e 40%,#243869);
 		width: 30rem;
-		opacity: 1;
+		/* opacity: 1; */
 	}
 `;
 

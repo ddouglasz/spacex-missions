@@ -3,8 +3,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
-import { getLaunches, getSingleLaunch } from "../actions/launchesActions";
+import { getLaunches, getSingleLaunch, getAllLaunchSearchAction } from "../actions/launchesActions";
 import Modal from "../components/Modal";
+import Loading from "../components/Loading";
 import LaunchCard from "../components/LaunchCard";
 
 const StyledLaunches = styled.div`
@@ -19,11 +20,22 @@ const StyledLaunches = styled.div`
 	color: #ffff;
 
 
-	.search-options, input[type="text" ] {
+	 input[type="text" ] {
 		padding: 6px;
 		margin-top: 8px;
+		height: 5vh;
 		margin-bottom: 8px;
 		font-size: 17px;
+		border: none;
+		outline: none;
+
+	}
+	
+	.search-options {
+		padding: 3px;
+		margin-top: 8px;
+		margin-bottom: 10px;
+		font-size: 10px;
 		border: none;
 		outline: none;
 
@@ -45,6 +57,11 @@ const StyledLaunches = styled.div`
 		cursor: pointer;
 	}
 	
+	.search-form {
+		display: flex;
+    flex-direction: column;
+	}
+	
 	.scroll {
     overflow: scroll;
     height: 72vh;
@@ -53,6 +70,8 @@ const StyledLaunches = styled.div`
     width: 70%;
     
   }
+
+
 `;
 
 class Launches extends React.Component {
@@ -61,24 +80,44 @@ class Launches extends React.Component {
 		this.state = {
 			hover: false,
 			show: false,
+			searchType: 'date',
+			searchValue: ''
 		};
+		// this.onSearch = this.onSearch.bind(this);
+		// this.handleChange = this.handleChange.bind(this);
 	}
+	
+	handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name] : value });
+  }
 
 	showModal = id => {
 		this.setState({
 			show: !this.state.show,
 		});
 		this.props.getSingleLaunch(id);
+		console.log(this.props.history)
 	};
 
 	componentDidMount() {
 		this.props.getLaunches();
 	}
+	
+	filterLaunches = (searchType,searchValue) => {
+		const { launches } = this.props;
+		return launches.filter((launch) => {
+		if(searchType === 'date'){
+			return launch.launch_year === searchValue;
+		}
+		return launch.mission_name.includes(searchValue);
+		});
+	}
 
 	render() {
+	  const { show, searchValue, searchType } = this.state;
 		const launches = this.props.launches;
-		const allLaunches = launches || [];
-		const { show } = this.state;
+		const allLaunches = searchValue ? this.filterLaunches(searchType,searchValue) : launches || [];
 		const displayAllLaunches = allLaunches.map(launch => (
 			<LaunchCard
 				launchName={launch.mission_name}
@@ -88,21 +127,20 @@ class Launches extends React.Component {
 			/>
 		));
 
-		const { single_launch } = this.props;
-		const LaunchDetail = single_launch ? single_launch : [];
-
+		// const { single_launch } = this.props;
+		const LaunchDetail = launches ? launches : [];
+		if(LaunchDetail.length === 0) {
+			return <Loading />
+		}
 		return launches ? (
 			<StyledLaunches show={show}>
 				<div className="search-container">
-					<form action="">
-						<select id="" className="search-options">
-							<option value="date">Search by Date</option>
-							<option value="name">Search by name</option>
+					<form className="search-form" onSubmit={this.onSearch}>
+						<input type="text" placeholder="Search.." name="searchValue" value={this.state.searchValue} onChange={this.handleChange}  />
+						<select className="search-options" id="mySelect" name="searchType" value={searchType} onChange={this.handleChange}>
+							<option  value="date">Search by Mission Name</option>
+							<option  value="name">Search by Mission Year</option>
 						</select>
-						<input type="text" placeholder="Search.." name="search" />
-						<button type="submit">
-							<i className="fa fa-search"></i>
-						</button>
 					</form>
 				</div>
 				{launches.error && <h2>{launches.error}</h2>}
@@ -123,12 +161,12 @@ class Launches extends React.Component {
 
 const mapStateToProps = state => ({
 	launches: state.launches,
-	single_launch: state.single_launch,
+	// single_launch: state.single_launch,
 });
 
 Launches = connect(
 	mapStateToProps,
-	{ getLaunches, getSingleLaunch },
+	{ getLaunches, getSingleLaunch, getAllLaunchSearchAction },
 	null,
 )(Launches);
 
