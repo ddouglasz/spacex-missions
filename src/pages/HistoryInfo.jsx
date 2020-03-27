@@ -48,13 +48,13 @@ class HistoryInfo extends React.Component {
 
 	render() {
 		const history = this.props.single_history;
-		const getHistory = history || [];
+		const getHistory = history || {};
 		
-		if(getHistory.length === 0 ){
+		if(!getHistory){
 			return (<Loading />)
 		}
 		return history ? (
-			<StyledHistoryInfo>
+			<StyledHistoryInfo data-testid="styledHistoryElement">
 				<div id="details-card">
 				<h1>History Information</h1>
 				<div className="history-info" data-testid="history-info-elements"><strong className="item-label">Id:</strong> {getHistory.id}</div>

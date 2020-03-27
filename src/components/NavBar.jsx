@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
+import { withRouter } from "react-router-dom"
 
 const StyledNavBar  = styled.div`
 	display: flex;
@@ -27,12 +28,12 @@ const StyledNavBar  = styled.div`
 	}
 	
 	.history {
-		background: linear-gradient(45deg,#1f3059,#1b2a4e 40%,#243869);
+	background: ${({ route }) => route === "/History" ? "#5476a3":  "linear-gradient(45deg,#1f3059,#1b2a4e 40%,#243869)" };
 
 	}
 	
 	.launches {
-		background: linear-gradient(45deg,#1f3059,#1b2a4e 40%,#243869);
+	background: ${({ route }) => route === "/Launches" ? "#5476a3": "linear-gradient(45deg,#1f3059,#1b2a4e 40%,#243869)"}
 	}
 	
 	.company-name {
@@ -43,9 +44,9 @@ const StyledNavBar  = styled.div`
 	
 `;
 
-const NavBar = () => {
+const NavBar = (props) => {
 	return (
-		<StyledNavBar>
+		<StyledNavBar route={props.location.pathname}>
 			<div data-testid="nav-elements" className="nav history">
 				<Link to="/History" className="">
 					<span><h1><span className="company-name">SPACE-X</span>  HISTORY</h1></span>
@@ -60,4 +61,4 @@ const NavBar = () => {
 	);
 };
 
-export default NavBar;
+export default withRouter(NavBar);

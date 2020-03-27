@@ -15,6 +15,7 @@ const StyledHistory = styled.div`
 	flex-direction: column;
 	align-items: center;
 	color: #ffff;
+	height: 90vh;
 
 	.scroll {
     overflow: scroll;
