@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Button from '../styles/Button'
 
 const StyledModal = styled.div`
 	position: fixed;
@@ -23,6 +24,18 @@ const StyledModal = styled.div`
 		width: 30rem;
 		/* opacity: 1; */
 	}
+	
+	.send-btn {
+		display: flex;
+    justify-content: flex-end;
+	}
+	
+	#cancel-btn {
+		color: #239AD7;
+		background-color: inherit !important;
+		display: flex;
+    justify-content: flex-end;
+	}
 `;
 
 class Modal extends React.Component {
@@ -36,27 +49,19 @@ class Modal extends React.Component {
 		}
 		return (
 			<StyledModal>
-				<div className="inner">
-					<h2>Modal Window</h2>
-					<div>{this.props.children}</div>
+				<div  data-testid="modal-container" className="inner">
+				<div id="cancel-btn">
+						<Button className="toggle-button" onClick={this.onClose} data-testid="close-modal-button">
+							<strong>X</strong>
+						</Button>
+				</div>
 					<div>
-						<h1>Select information to share</h1>
-						<input type="checkbox" id="" name="" value="" />
-						<label for="">Jesus</label>
-						<br />
-						<input type="checkbox" id="" name="" value="" />
-						<label for=""> {}</label>
-						<br />
-						<input type="checkbox" id="" name="" value="" />
-						<label for="vehicle3"> {}</label>
-						<br />
-						<br />
-						<input type="submit" value="Send" />
-						
-						<button className="toggle-button" onClick={this.onClose}>
-							close
-						</button>
+					<h2>Launch Information</h2>
+					<div>{this.props.children}</div>
 					</div>
+						<div className="send-btn">
+						<Button type="submit" onClick={this.onClose} data-testid="modal-send-button" >Send</Button>
+						</div>
 				</div>
 			</StyledModal>
 		);

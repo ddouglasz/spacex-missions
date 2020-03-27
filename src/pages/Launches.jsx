@@ -148,11 +148,21 @@ class Launches extends React.Component {
 				</div>
 				{launches.error && <h2>{launches.error}</h2>}
 				<Modal onClose={this.showModal} show={this.state.show}>
-					Flight Number: {LaunchDetail.flight_number}
+				 <img src={LaunchDetail && LaunchDetail.links ? LaunchDetail.links.mission_patch_small : null} alt='loading...' />
 					<div className="content">
-						<h1>Modal</h1>
-						Mission Name: {LaunchDetail.mission_name}
-						<div>Launch Year: {LaunchDetail.launch_year}</div>
+					<div>
+					<h1>Select information to share</h1>
+						<input type="checkbox" data-testid="modal-input-elements" name="" value="" />
+						<label >Flight Number: {LaunchDetail.flight_number}</label>
+						<br />
+						<input type="checkbox" data-testid="modal-input-elements" name="" value="" />
+						<label >Mission Name: {LaunchDetail.mission_name}</label>
+						<br />
+						<input type="checkbox" data-testid="modal-input-elements" name="" value="" />
+						<label > Launch Year: {LaunchDetail.launch_year}</label>
+						<br />
+						<br />
+						</div>
 					</div>
 				</Modal>
 				<div className="scroll">
