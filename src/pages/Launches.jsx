@@ -65,7 +65,7 @@ const StyledLaunches = styled.div`
     overflow: scroll;
     height: 72vh;
     top: 5rem;
-    text-align: center;
+    /* text-align: center; */
     width: 70%;
     
   }
@@ -121,6 +121,9 @@ class Launches extends React.Component {
 		const displayAllLaunches = allLaunches.map(launch => (
 			<LaunchCard
 				launchName={launch.mission_name}
+				nationality={launch.rocket.second_stage.payloads[0].nationality}
+				manufacturer={launch.rocket.second_stage.payloads[0].manufacturer}
+				type={launch.rocket.second_stage.payloads[0].payload_type}
 				key={launch.flight_number}
 				id={launch.flight_number}
 				showModal={this.showModal}

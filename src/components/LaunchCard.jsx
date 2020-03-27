@@ -10,13 +10,37 @@ const StyledCard = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	
+	.launch-data {
+		margin: 10px;
+	}
+	
+	.spacing {
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+	
+	strong {
+		color: #239AD7;
+	}
 `;
 
-const LaunchCard = ({ launchName, showModal, id }) => {
+const LaunchCard = ({ launchName, nationality, manufacturer, type,  showModal, id }) => {
 	return (
 		<StyledCard>
-			<div data-testid="launch-card-name" className="">
-				{launchName}
+		<div className="launch-data">
+			<div data-testid="spacing launch-card-name" className="">
+				<strong>Launch Name:</strong> {launchName}
+			</div>
+			<div data-testid="spacing payload-nationality" className="">
+			<strong>Payload Nationality:</strong> {nationality}
+			</div>
+			<div data-testid="spacing payload-manufacturer" className="">
+			<strong>Payload Manufaturer:</strong> {manufacturer}
+			</div>
+			<div data-testid="spacing payload-type" className="">
+			<strong>Payload Type:</strong> {type}
+			</div>
 			</div>
 			<div data-testid="launch-card-modal-button">
 				<Button
