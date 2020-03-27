@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import img from '../loading_spinner.gif'
+import img from '../assets/loading_spinner.gif'
 
 const StyledLoading = styled.div`
   /* height: 30vh; */

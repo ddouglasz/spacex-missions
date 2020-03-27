@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Button from '../styles/Button'
+// import svg from '../assets/down-arrow.svg'
 
 const StyledModal = styled.div`
 	position: fixed;
@@ -11,11 +12,10 @@ const StyledModal = styled.div`
 	left: 0;
 	top: 0;
 	z-index: 1;
-	background: #000;
-	opacity: 0.85;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background-color: rgba(0, 0, 0, .5);
 
 	.inner {
 		padding: 1rem;
@@ -51,8 +51,8 @@ class Modal extends React.Component {
 			<StyledModal>
 				<div  data-testid="modal-container" className="inner">
 				<div id="cancel-btn">
-						<Button className="toggle-button" onClick={this.onClose} data-testid="close-modal-button">
-							<strong>X</strong>
+						<Button className="toggle-button" onClick={this.onClose} data-testid="close-modal-button" >
+						Close
 						</Button>
 				</div>
 					<div>

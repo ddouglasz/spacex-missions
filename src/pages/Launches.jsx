@@ -19,8 +19,8 @@ const StyledLaunches = styled.div`
 	color: #ffff;
 
 
-	 input[type="text" ] {
-		padding: 7px;
+	 .search-input {
+		padding: 5px;
 		margin-top: 8px;
 		height: 5vh;
 		margin-bottom: 8px;
@@ -40,7 +40,7 @@ const StyledLaunches = styled.div`
 		border: none;
 		outline: none;
 	  width: 141px;
-    height: 51px;
+    height: 6.3vh;
     margin: 0;
     padding-top: 7px;
 
@@ -163,7 +163,7 @@ class Launches extends React.Component {
 			<StyledLaunches show={show}>
 				<div className="search-container" ata-testid="search-container">
 					<form className="search-form" onSubmit={this.onSearch}>
-						<input type="text" placeholder={this.state.searchType === 'date' ? 'YYYY' : 'Launch Name'} name="searchValue" value={this.state.searchValue} onChange={this.handleChange}  />
+						<input type="text" className="search-input" placeholder={this.state.searchType === 'date' ? 'YYYY' : 'Launch Name'} name="searchValue" value={this.state.searchValue} onChange={this.handleChange}  />
 						<select className="search-options" id="mySelect" name="searchType" value={searchType} onChange={this.handleChange}>
 							<option  value="date">Date</option>
 							<option  value="name">Mission Name</option>
@@ -175,7 +175,7 @@ class Launches extends React.Component {
 				 <img src={LaunchDetail && LaunchDetail.links ? LaunchDetail.links.mission_patch_small : null} alt='loading...' />
 					<div className="content">
 					<div>
-					<h1>Select information to share</h1>
+					<h2>Select information to share</h2>
 						<input type="checkbox" data-testid="modal-input-elements" name="" value="" />
 						<label >Flight Number: {LaunchDetail.flight_number}</label>
 						<br />

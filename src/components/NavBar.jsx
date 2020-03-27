@@ -5,6 +5,7 @@ import styled from 'styled-components'
 const StyledNavBar  = styled.div`
 	display: flex;
 	color: #fff;
+	height: 10vh;
 	/* background: #4b5256; */
 	
 	a {
@@ -45,6 +46,7 @@ const StyledNavBar  = styled.div`
 const NavBar = () => {
 	return (
 		<StyledNavBar>
+		{/* <div> */}
 			<div data-testid="nav-elements" className="nav history">
 				<Link to="/History" className="">
 					<span><h1><span className="company-name">SPACE-X</span>  HISTORY</h1></span>
@@ -55,6 +57,7 @@ const NavBar = () => {
 					<span><h1>LAUNCHES</h1></span>
 				</Link>
 			</div>
+			{/* </div> */}
 		</StyledNavBar>
 	);
 };
