@@ -12,7 +12,7 @@ function App() {
 		<div >
 			<NavBar />
 			<Switch>
-				<Route path="/" exact render={() => <Redirect to="/history" /> } />
+				<Route path="/" exact render={() => <Redirect to="/History" /> } />
 				<Route path="/Launches" exact component={Launches} />
 				<Route path="/Launches/:id" exact component={Modal} />
 				<Route path="/History" exact component={History} />
