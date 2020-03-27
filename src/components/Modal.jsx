@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Button from '../styles/Button'
-// import svg from '../assets/down-arrow.svg'
+import close from '../assets/close.svg'
 
 const StyledModal = styled.div`
 	position: fixed;
@@ -22,7 +22,7 @@ const StyledModal = styled.div`
 		border-radius: 1rem;
 		background: linear-gradient(45deg,#1f3059,#1b2a4e 40%,#243869);
 		width: 30rem;
-		/* opacity: 1; */
+		position: relative;
 	}
 	
 	.send-btn {
@@ -30,11 +30,10 @@ const StyledModal = styled.div`
     justify-content: flex-end;
 	}
 	
-	#cancel-btn {
-		color: #239AD7;
-		background-color: inherit !important;
-		display: flex;
-    justify-content: flex-end;
+	.close-btn {
+		position: absolute;
+		top: 20px;
+		right: 20px;
 	}
 `;
 
@@ -50,11 +49,7 @@ class Modal extends React.Component {
 		return (
 			<StyledModal>
 				<div  data-testid="modal-container" className="inner">
-				<div id="cancel-btn">
-						<Button className="toggle-button" onClick={this.onClose} data-testid="close-modal-button" >
-						Close
-						</Button>
-				</div>
+				<img src={close} alt="" height={15} width={15} onClick={this.onClose} className="close-btn" color="red"/>
 					<div>
 					<h2>Launch Information</h2>
 					<div>{this.props.children}</div>
