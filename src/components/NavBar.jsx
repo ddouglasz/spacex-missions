@@ -47,15 +47,11 @@ const StyledNavBar  = styled.div`
 const NavBar = (props) => {
 	return (
 		<StyledNavBar route={props.location.pathname} >
-			<div data-testid="nav-elements" className="nav history" >
-				<Link to="/History" className="">
+			<div data-testid="nav-elements" className="nav history" onClick={() => props.history.push("/History")}>
 					<span><h1><span className="company-name">SPACE-X</span>  HISTORY</h1></span>
-				</Link>
 			</div>
-			<div data-testid="nav-elements" className="nav launches">
-				<Link to="/Launches" className="">
+			<div data-testid="nav-elements" className="nav launches" onClick={() => props.history.push("/Launches")}>
 					<span><h1>LAUNCHES</h1></span>
-				</Link>
 			</div>
 		</StyledNavBar>
 	);
