@@ -4,16 +4,13 @@ import { Route, Switch, Redirect } from "react-router";
 import HistoryInfo from './pages/HistoryInfo';
 import Launches from "./pages/Launches";
 import History from "./pages/History";
-import Loading from './components/Loading';
 import NavBar from "./components/NavBar";
 import Modal from './components/Modal';
 
 function App() {
 	return (
 		<div >
-			{/* <Button /> */}
 			<NavBar />
-			{/* <Loading /> */}
 			<Switch>
 				<Route path="/" exact render={() => <Redirect to="/history" /> } />
 				<Route path="/Launches" exact component={Launches} />

@@ -4,15 +4,15 @@ import styled from 'styled-components'
 import img from '../loading_spinner.gif'
 
 const StyledLoading = styled.div`
-  height: 30vh;
+  /* height: 30vh; */
 `;
 
-let Laoading = ({ loading }) => (
+let Loading = ({ loading }) => (
 
 
   loading ?
     <StyledLoading style={{ textAlign: 'center' }}>
-      <img src={img} alt='loading' />
+      <img data-testid="loading-img-elements" src={img} alt='loading' />
       <h1>LOADING</h1>
     </StyledLoading> :
     null
@@ -22,12 +22,12 @@ const mapStateToProps = (state) => ({
   loading: state.loading
 })
 
-Laoading = connect(
+Loading = connect(
   mapStateToProps,
   null
-)(Laoading)
+)(Loading)
 
 
-export default Laoading;
+export default Loading;
 
 

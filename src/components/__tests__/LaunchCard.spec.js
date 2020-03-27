@@ -1,6 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Router } from 'react-router-dom';
-import { createMemoryHistory } from "history";
+import { BrowserRouter } from 'react-router-dom';
 import { render, fireEvent } from '@testing-library/react';
 
 import LaunchCard from '../LaunchCard';
@@ -19,16 +18,12 @@ test('renders launch name element', () => {
   expect(getAllByTestId('launch-card-modal-button').length).toEqual(1);
 });
 
-test("ronclick button should open modal", () => {
-	const history = createMemoryHistory();
+test("modal button should fire action", () => {
 
 	const { getByText } = render(
-		<Router history={history}>
 			<LaunchCard id={3} showModal={jest.fn()} />
-		</Router>,
 	);
 
   
-fireEvent.click(getByText("More Info"));
-
+  fireEvent.click(getByText("More Info"));
 });

@@ -56,7 +56,7 @@ class History extends React.Component {
 		return history ? (
 			 <StyledHistory>
 			  	{history.error && <h2>{history.error}</h2>}
-			  	<div className="scroll">
+			  	<div className="scroll" data-testid="history-scroll">
 			  	{history && displayAllHistories}
 			  	</div>
 			  </StyledHistory>

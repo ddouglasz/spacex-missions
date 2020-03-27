@@ -8,9 +8,14 @@ import { getSingleHistory } from "../actions/historyActions";
 
 
 const StyledHistoryInfo = styled.div`
-	background: #fff;
-	height: 81vh;
+	background: #0b0b0b;
+	color: #ffff;
+	height: 85vh;
 	padding: 2rem 5rem;
+	
+	.links a{
+		color: #ffff;
+	}
 	
 	.history-info {
 		margin: 5px;
@@ -34,23 +39,25 @@ class HistoryInfo extends React.Component {
 		return history ? (
 			<StyledHistoryInfo>
 				<h1>History Information</h1>
-				<div className="history-info"><strong>Id:</strong> {getHistory.id}</div>
-				<div className="history-info"><strong>Title:</strong> {getHistory.title}</div>
-				<div className="history-info"><strong>Event Date:</strong> {getHistory.event_date_utc}</div>
-				<div className="history-info"><strong>Flight Number:</strong> {getHistory.flight_number}</div>
-				<div className="history-info"><strong>Details:</strong> {getHistory.details}</div>
-				<h1 className="history-info">Links to further information</h1>
+				<div className="history-info" data-testid="history-info-elements"><strong>Id:</strong> {getHistory.id}</div>
+				<div className="history-info" data-testid="history-info-elements"><strong>Title:</strong> {getHistory.title}</div>
+				<div className="history-info" data-testid="history-info-elements"><strong>Event Date:</strong> {getHistory.event_date_utc}</div>
+				<div className="history-info" data-testid="history-info-elements"><strong>Flight Number:</strong> {getHistory.flight_number}</div>
+				<div className="history-info" data-testid="history-info-elements"><strong>Details:</strong> {getHistory.details}</div>
+				<h1 className="history-info" data-testid="history-info-elements">Links to further information</h1>
+				<div>
 				<ul>
-					<li>
+					<li className="links">
 						<a href={getHistory.links.reddit}>Reddit</a>
 					</li>
-					<li>
+					<li className="links">
 						<a href={getHistory.links.article}>Article</a>
 					</li>
-					<li>
+					<li className="links">
 						<a href={getHistory.links.wikipedia}>Wikipedia</a>
 					</li>
 				</ul>
+				</div>
 			</StyledHistoryInfo>
 		) : null;
 	}

@@ -1,5 +1,4 @@
-// import React from 'react'
-// import Button from '../Button'
+
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
@@ -83,8 +82,6 @@ class Launches extends React.Component {
 			searchType: 'date',
 			searchValue: ''
 		};
-		// this.onSearch = this.onSearch.bind(this);
-		// this.handleChange = this.handleChange.bind(this);
 	}
 	
 	handleChange = (event) => {
@@ -108,9 +105,12 @@ class Launches extends React.Component {
 		const { launches } = this.props;
 		return launches.filter((launch) => {
 		if(searchType === 'date'){
+		
+			console.log('launch.mission_name = ', launch.mission_name.toLowerCase())
+			console.log('launch_year = ', launch.launch_year)
 			return launch.launch_year === searchValue;
-		}
-		return launch.mission_name.includes(searchValue);
+		} 
+			return launch.mission_name.toLowerCase().includes(searchValue.toLowerCase());
 		});
 	}
 
@@ -127,19 +127,19 @@ class Launches extends React.Component {
 			/>
 		));
 
-		// const { single_launch } = this.props;
-		const LaunchDetail = launches ? launches : [];
-		if(LaunchDetail.length === 0) {
+		const { single_launch } = this.props;
+		const LaunchDetail = single_launch ? single_launch : [];
+		if(!launches) {
 			return <Loading />
 		}
 		return launches ? (
 			<StyledLaunches show={show}>
-				<div className="search-container">
+				<div className="search-container" ata-testid="search-container">
 					<form className="search-form" onSubmit={this.onSearch}>
 						<input type="text" placeholder="Search.." name="searchValue" value={this.state.searchValue} onChange={this.handleChange}  />
 						<select className="search-options" id="mySelect" name="searchType" value={searchType} onChange={this.handleChange}>
-							<option  value="date">Search by Mission Name</option>
-							<option  value="name">Search by Mission Year</option>
+							<option  value="date">Search by Mission Date</option>
+							<option  value="name">Search by Mission Name</option>
 						</select>
 					</form>
 				</div>
@@ -148,7 +148,8 @@ class Launches extends React.Component {
 					Flight Number: {LaunchDetail.flight_number}
 					<div className="content">
 						<h1>Modal</h1>
-						mission_name: {LaunchDetail.mission_name}
+						Mission Name: {LaunchDetail.mission_name}
+						<div>Launch Year: {LaunchDetail.launch_year}</div>
 					</div>
 				</Modal>
 				<div className="scroll">
@@ -161,7 +162,7 @@ class Launches extends React.Component {
 
 const mapStateToProps = state => ({
 	launches: state.launches,
-	// single_launch: state.single_launch,
+	single_launch: state.single_launch,
 });
 
 Launches = connect(
