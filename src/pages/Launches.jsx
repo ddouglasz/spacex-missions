@@ -20,29 +20,55 @@ const StyledLaunches = styled.div`
 
 
 	 input[type="text" ] {
-		padding: 6px;
+		padding: 7px;
 		margin-top: 8px;
 		height: 5vh;
 		margin-bottom: 8px;
 		font-size: 17px;
 		border: none;
 		outline: none;
+		width: 20rem
 
 	}
 	
 	.search-options {
 		padding: 3px;
+		padding-left: 6px;
 		margin-top: 8px;
 		margin-bottom: 10px;
 		font-size: 10px;
 		border: none;
 		outline: none;
+	  width: 141px;
+    height: 51px;
+    margin: 0;
+    padding-top: 7px;
 
 	}
 	
- .search-options {
-		height: 4vh;
-	}
+	select {
+  -webkit-appearance:none;
+	-webkit-border-radius: 0px;
+}
+
+
+/* arrows */
+
+select.search-options {
+  background-image:
+    linear-gradient(45deg, transparent 50%, blue 50%),
+    linear-gradient(135deg, blue 50%, transparent 50%),
+    linear-gradient(to right, skyblue, skyblue);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    100% 0;
+  background-size:
+    5px 5px,
+    5px 5px,
+    3.5em 5.5em;
+  background-repeat: no-repeat;
+}
 
 	.search-container button {
 		float: right;
@@ -57,15 +83,13 @@ const StyledLaunches = styled.div`
 	}
 	
 	.search-form {
-		display: flex;
-    flex-direction: column;
+	 margin: 25px;
 	}
 	
 	.scroll {
     overflow: scroll;
     height: 72vh;
     top: 5rem;
-    /* text-align: center; */
     width: 70%;
     
   }
@@ -139,10 +163,10 @@ class Launches extends React.Component {
 			<StyledLaunches show={show}>
 				<div className="search-container" ata-testid="search-container">
 					<form className="search-form" onSubmit={this.onSearch}>
-						<input type="text" placeholder="Search.." name="searchValue" value={this.state.searchValue} onChange={this.handleChange}  />
+						<input type="text" placeholder={this.state.searchType === 'date' ? 'YYYY' : 'Launch Name'} name="searchValue" value={this.state.searchValue} onChange={this.handleChange}  />
 						<select className="search-options" id="mySelect" name="searchType" value={searchType} onChange={this.handleChange}>
-							<option  value="date">Search by Mission Date</option>
-							<option  value="name">Search by Mission Name</option>
+							<option  value="date">Date</option>
+							<option  value="name">Mission Name</option>
 						</select>
 					</form>
 				</div>

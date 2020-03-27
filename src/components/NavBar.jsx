@@ -34,6 +34,11 @@ const StyledNavBar  = styled.div`
 		background: linear-gradient(45deg,#1f3059,#1b2a4e 40%,#243869);
 	}
 	
+	.company-name {
+		color: #239AD7;
+		margin-right: 10px;
+	}
+	
 	
 `;
 
@@ -42,12 +47,12 @@ const NavBar = () => {
 		<StyledNavBar>
 			<div data-testid="nav-elements" className="nav history">
 				<Link to="/History" className="">
-					<span><h1>HISTORY PAGE</h1></span>
+					<span><h1><span className="company-name">SPACE-X</span>  HISTORY</h1></span>
 				</Link>
 			</div>
 			<div data-testid="nav-elements" className="nav launches">
 				<Link to="/Launches" className="">
-					<span><h1>LAUNCH PAGE</h1></span>
+					<span><h1>LAUNCHES</h1></span>
 				</Link>
 			</div>
 		</StyledNavBar>
