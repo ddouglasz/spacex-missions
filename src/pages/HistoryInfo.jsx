@@ -13,12 +13,29 @@ const StyledHistoryInfo = styled.div`
 	height: 85vh;
 	padding: 2rem 5rem;
 	
+	
+	#details-card {
+    background: #1f3059;
+    padding: 5px;
+    margin: 5px;
+	}
+	
+	#links-card {
+    background: #1f3059;
+    padding: 5px;
+    margin: 5px;
+	}
+	
 	.links a{
 		color: #ffff;
 	}
 	
 	.history-info {
-		margin: 5px;
+		margin: 10px;
+	}
+	
+	.item-label {
+	color: #239AD7;
 	}
 	
 `
@@ -38,13 +55,16 @@ class HistoryInfo extends React.Component {
 		}
 		return history ? (
 			<StyledHistoryInfo>
+				<div id="details-card">
 				<h1>History Information</h1>
-				<div className="history-info" data-testid="history-info-elements"><strong>Id:</strong> {getHistory.id}</div>
-				<div className="history-info" data-testid="history-info-elements"><strong>Title:</strong> {getHistory.title}</div>
-				<div className="history-info" data-testid="history-info-elements"><strong>Event Date:</strong> {getHistory.event_date_utc}</div>
-				<div className="history-info" data-testid="history-info-elements"><strong>Flight Number:</strong> {getHistory.flight_number}</div>
-				<div className="history-info" data-testid="history-info-elements"><strong>Details:</strong> {getHistory.details}</div>
-				<h1 className="history-info" data-testid="history-info-elements">Links to further information</h1>
+				<div className="history-info" data-testid="history-info-elements"><strong className="item-label">Id:</strong> {getHistory.id}</div>
+				<div className="history-info" data-testid="history-info-elements"><strong className="item-label">Title:</strong> {getHistory.title}</div>
+				<div className="history-info" data-testid="history-info-elements"><strong className="item-label">Event Date:</strong> {getHistory.event_date_utc}</div>
+				<div className="history-info" data-testid="history-info-elements"><strong className="item-label">Flight Number:</strong> {getHistory.flight_number}</div>
+				<div className="history-info" data-testid="history-info-elements"><strong className="item-label">Details:</strong> {getHistory.details}</div>
+				</div>
+				<div id="links-card">
+				<h1 className="" data-testid="history-info-elements">Links to further information</h1>
 				<div>
 				<ul>
 					<li className="links">
@@ -57,6 +77,7 @@ class HistoryInfo extends React.Component {
 						<a href={getHistory.links.wikipedia}>Wikipedia</a>
 					</li>
 				</ul>
+				</div>
 				</div>
 			</StyledHistoryInfo>
 		) : null;
