@@ -16,8 +16,8 @@ const StyledCard = styled.div`
 	}
 	
 	.spacing {
-		padding-top: 15px;
-		padding-bottom: 15px;
+		padding-top: 5px;
+		padding-bottom: 5px;
 	}
 	
 	strong {
@@ -29,16 +29,16 @@ const LaunchCard = ({ launchName, nationality, manufacturer, type,  showModal, i
 	return (
 		<StyledCard>
 		<div className="launch-data">
-			<div data-testid="spacing launch-card-name" className="">
+			<div data-testid="launch-card-name" className="spacing">
 				<strong>Launch Name:</strong> {launchName}
 			</div>
-			<div data-testid="spacing payload-nationality" className="">
+			<div data-testid="payload-nationality" className="spacing">
 			<strong>Payload Nationality:</strong> {nationality}
 			</div>
-			<div data-testid="spacing payload-manufacturer" className="">
+			<div data-testid="payload-manufacturer" className="spacing">
 			<strong>Payload Manufaturer:</strong> {manufacturer}
 			</div>
-			<div data-testid="spacing payload-type" className="">
+			<div data-testid="payload-type" className="spacing">
 			<strong>Payload Type:</strong> {type}
 			</div>
 			</div>

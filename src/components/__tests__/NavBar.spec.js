@@ -21,8 +21,9 @@ test("renders navigation elements with their appropiate names", () => {
 		</BrowserRouter>,
 	);
 
-	expect(getByText("HISTORY PAGE")).toBeInTheDocument();
-	expect(getByText("LAUNCH PAGE")).toBeInTheDocument();
+	expect(getByText("HISTORY")).toBeInTheDocument();
+	expect(getByText("LAUNCHES")).toBeInTheDocument();
+	expect(getByText("SPACE-X")).toBeInTheDocument();
 });
 
 test("renders navigation elements with their appropiate names", () => {
@@ -36,7 +37,7 @@ test("renders navigation elements with their appropiate names", () => {
 
 	expect(history.location.pathname).toEqual("/");
 
-	fireEvent.click(getByText("HISTORY PAGE"));
+	fireEvent.click(getByText("HISTORY"));
 
 	expect(history.location.pathname).toEqual("/History");
 });

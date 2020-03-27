@@ -49,7 +49,7 @@ class Modal extends React.Component {
 		return (
 			<StyledModal>
 				<div  data-testid="modal-container" className="inner">
-				<img src={close} alt="" height={15} width={15} onClick={this.onClose} className="close-btn" color="red"/>
+				<img src={close} alt="" height={15} width={15} onClick={this.onClose} className="close-btn" color="red" data-testid="close-modal-button"/>
 					<div>
 					<h2>Launch Information</h2>
 					<div>{this.props.children}</div>
