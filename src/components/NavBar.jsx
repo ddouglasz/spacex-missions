@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link, Router } from 'react-router-dom';
 import styled from 'styled-components'
 import { withRouter } from "react-router-dom"
 
@@ -28,12 +28,12 @@ const StyledNavBar  = styled.div`
 	}
 	
 	.history {
-	background: ${({ route }) => route === "/History" ? "#5476a3":  "linear-gradient(45deg,#1f3059,#1b2a4e 40%,#243869)" };
+	background: ${({ route }) => route.split('/').includes("History") ? "#5476a3":  "linear-gradient(45deg,#1f3059,#1b2a4e 40%,#243869)" };
 
 	}
 	
 	.launches {
-	background: ${({ route }) => route === "/Launches" ? "#5476a3": "linear-gradient(45deg,#1f3059,#1b2a4e 40%,#243869)"}
+	background: ${({ route }) => route.split('/').includes("Launches") ? "#5476a3": "linear-gradient(45deg,#1f3059,#1b2a4e 40%,#243869)"}
 	}
 	
 	.company-name {
@@ -46,8 +46,8 @@ const StyledNavBar  = styled.div`
 
 const NavBar = (props) => {
 	return (
-		<StyledNavBar route={props.location.pathname}>
-			<div data-testid="nav-elements" className="nav history">
+		<StyledNavBar route={props.location.pathname} >
+			<div data-testid="nav-elements" className="nav history" >
 				<Link to="/History" className="">
 					<span><h1><span className="company-name">SPACE-X</span>  HISTORY</h1></span>
 				</Link>
