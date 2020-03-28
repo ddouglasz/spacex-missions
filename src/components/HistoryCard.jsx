@@ -20,6 +20,10 @@ const StyledCard = styled.div`
 	.event-date {
 		color: #239ad7;
 	}
+	
+	.event-description {
+		color: #239AD7;
+	}
 `;
 
 const HistoryCard = ({ eventDate, eventDescription, history_id }) => {
@@ -27,13 +31,11 @@ const HistoryCard = ({ eventDate, eventDescription, history_id }) => {
 		<StyledCard>
 			<div >
 				<div data-testid="history-card-description" className="decription">
-					<strong>Event description</strong>: {eventDescription}
+					<strong className="event-description">Event description</strong>: {eventDescription}
 				</div>
 				<small data-testid="history-card-event-date"  className="event-date">
 					{eventDate}
 				</small>
-				<div id="" className="">
-				</div>
 			</div>
 			<div data-testid="history-card-link-element">
 				<Link to={`/History/${history_id}`} id="">
