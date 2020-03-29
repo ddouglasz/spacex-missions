@@ -6,6 +6,9 @@ import styled from "styled-components";
 import Loading from '../components/Loading'
 
 const StyledHistory = styled.div`
+	@media screen and (max-width: 736px) {
+		/* width: 100%; */
+  }
 	background: ${ props => props.show ? "grey" : "#0b0b0b"};
 	color: #161c2d;
 	position: relative;
@@ -18,6 +21,9 @@ const StyledHistory = styled.div`
 	height: 90vh;
 
 	.scroll {
+	@media screen and (max-width: 736px) {
+		width: 80%;
+  }
     overflow: scroll;
     height: 78vh;
     top: 5rem;

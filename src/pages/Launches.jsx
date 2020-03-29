@@ -8,6 +8,9 @@ import Loading from "../components/Loading";
 import LaunchCard from "../components/LaunchCard";
 
 const StyledLaunches = styled.div`
+	 @media screen and (max-width: 736px) {
+		/* width: 100%; */
+  }
 	background: ${props => (props.show ? "grey" : "#0b0b0b")};
 	color: #161c2d;
 	position: relative;
@@ -20,10 +23,10 @@ const StyledLaunches = styled.div`
 
 
 	 .search-input {
-		padding: 5px;
+		padding: 6px;
 		margin-top: 8px;
+		/* margin-bottom: 10px; */
 		height: 5vh;
-		margin-bottom: 8px;
 		font-size: 17px;
 		border: none;
 		outline: none;
@@ -32,17 +35,21 @@ const StyledLaunches = styled.div`
 	}
 	
 	.search-options {
-		padding: 3px;
-		padding-left: 6px;
+	 @media screen and (max-width: 736px) {
+    display: block;
+    height: 5vh;
+  }
+		/* padding: 6px; */
 		margin-top: 8px;
-		margin-bottom: 10px;
-		font-size: 10px;
+		/* margin-bottom: 10px; */
+    /* height: 5vh; */
+		padding-left: 6px;
+		font-size: 17px;
 		border: none;
 		outline: none;
 	  width: 141px;
-    height: 6.3vh;
-    margin: 0;
-    padding-top: 7px;
+    /* margin: 0; */
+    /* padding-top: 6px; */
 
 	}
 	
@@ -66,7 +73,7 @@ select.search-options {
   background-size:
     5px 5px,
     5px 5px,
-    3.5em 5.5em;
+    3.5em 6.5em;
   background-repeat: no-repeat;
 }
 
@@ -83,10 +90,17 @@ select.search-options {
 	}
 	
 	.search-form {
+	 display: flex;
+	 @media screen and (max-width: 736px) {
+    display: block;
+  }
 	 margin: 25px;
 	}
 	
 	.scroll {
+	@media screen and (max-width: 736px) {
+		width: 80%;
+  }
     overflow: scroll;
     height: 72vh;
     top: 5rem;

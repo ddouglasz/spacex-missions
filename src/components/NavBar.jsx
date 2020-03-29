@@ -3,9 +3,13 @@ import styled from 'styled-components'
 import { withRouter } from "react-router-dom"
 
 const StyledNavBar  = styled.div`
+	@media screen and (max-width: 736px) {
+		width: 100%;
+		font-size: 10px;
+  }
 	display: flex;
 	color: #fff;
-	height: 10vh;
+	/* height: 10vh; */
 	/* background: #4b5256; */
 	
 	a {

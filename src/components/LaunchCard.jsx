@@ -4,12 +4,18 @@ import styled from "styled-components";
 
 const StyledCard = styled.div`
 	display: flex;
+	@media screen and (max-width: 736px) {
+    display: flow-root;
+    /* height: auto; */
+    /* justify-content: space-evenly; */
+  }
 	background: linear-gradient(45deg, #1f3059, #1b2a4e 40%, #243869);
 	margin-bottom: 1rem;
 	padding: 1rem;
-	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	
+	
 	
 	.launch-data {
 		margin: 10px;

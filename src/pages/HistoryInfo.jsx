@@ -28,6 +28,7 @@ const StyledHistoryInfo = styled.div`
 	
 	.links a{
 		color: #ffff;
+		margin: 10px 0;
 	}
 	
 	.history-info {
@@ -38,6 +39,10 @@ const StyledHistoryInfo = styled.div`
 	color: #239AD7;
 	}
 	
+	.history-info-header, .history-link-header {
+		margin-top: 30px;
+    margin-bottom: 5px;
+	}
 `
 
 class HistoryInfo extends React.Component {
@@ -55,16 +60,16 @@ class HistoryInfo extends React.Component {
 		}
 		return history ? (
 			<StyledHistoryInfo data-testid="styledHistoryElement">
+				<h1 className="history-info-header">History Information</h1>
 				<div id="details-card">
-				<h1>History Information</h1>
 				<div className="history-info" data-testid="history-info-elements"><strong className="item-label">Id:</strong> {getHistory.id}</div>
 				<div className="history-info" data-testid="history-info-elements"><strong className="item-label">Title:</strong> {getHistory.title}</div>
 				<div className="history-info" data-testid="history-info-elements"><strong className="item-label">Event Date:</strong> {getHistory.event_date_utc}</div>
 				<div className="history-info" data-testid="history-info-elements"><strong className="item-label">Flight Number:</strong> {getHistory.flight_number}</div>
 				<div className="history-info" data-testid="history-info-elements"><strong className="item-label">Details:</strong> {getHistory.details}</div>
 				</div>
+				<h1 className="history-link-header" data-testid="history-info-elements">Links to further information</h1>
 				<div id="links-card">
-				<h1 className="" data-testid="history-info-elements">Links to further information</h1>
 				<div>
 				<ul>
 					<li className="links">
