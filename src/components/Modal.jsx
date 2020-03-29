@@ -4,6 +4,7 @@ import Button from '../styles/Button'
 import close from '../assets/close.svg'
 
 const StyledModal = styled.div`
+
 	position: fixed;
 	background: #fff;
 	width: 100%;
@@ -18,6 +19,9 @@ const StyledModal = styled.div`
 	background-color: rgba(0, 0, 0, .5);
 
 	.inner {
+	@media screen and (max-width: 736px) {
+		margin: 1rem;
+	}
 		padding: 1rem;
 		border-radius: 1rem;
 		background: linear-gradient(45deg,#1f3059,#1b2a4e 40%,#243869);

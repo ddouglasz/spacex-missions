@@ -8,6 +8,9 @@ import { getSingleHistory } from "../actions/historyActions";
 
 
 const StyledHistoryInfo = styled.div`
+	@media screen and (max-width: 736px) {
+		padding: 2px;
+	}
 	background: #0b0b0b;
 	color: #ffff;
 	height: 85vh;
@@ -29,6 +32,7 @@ const StyledHistoryInfo = styled.div`
 	.links a{
 		color: #ffff;
 		margin: 10px 0;
+		padding: 10px 0;
 	}
 	
 	.history-info {
@@ -40,6 +44,7 @@ const StyledHistoryInfo = styled.div`
 	}
 	
 	.history-info-header, .history-link-header {
+		margin-left: 3px;
 		margin-top: 30px;
     margin-bottom: 5px;
 	}
@@ -72,7 +77,7 @@ class HistoryInfo extends React.Component {
 				<div id="links-card">
 				<div>
 				<ul>
-					<li className="links">
+					<li id="links">
 						<a href={getHistory.links.reddit}>Reddit</a>
 					</li>
 					<li className="links">

@@ -15,7 +15,12 @@ const StyledCard = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	
-	
+	#launch-card-modal-btn {
+	@media screen and (max-width: 736px) {
+		margin-left: 10px;
+    margin-top: 15px;
+  }
+	}
 	
 	.launch-data {
 		margin: 10px;
@@ -48,7 +53,7 @@ const LaunchCard = ({ launchName, nationality, manufacturer, type,  showModal, i
 			<strong>Payload Type:</strong> {type}
 			</div>
 			</div>
-			<div data-testid="launch-card-modal-button">
+			<div data-testid="launch-card-modal-btn" id="launch-card-modal-btn">
 				<Button
 					onClick={() => {
 						showModal(id);

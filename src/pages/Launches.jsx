@@ -8,9 +8,6 @@ import Loading from "../components/Loading";
 import LaunchCard from "../components/LaunchCard";
 
 const StyledLaunches = styled.div`
-	 @media screen and (max-width: 736px) {
-		/* width: 100%; */
-  }
 	background: ${props => (props.show ? "grey" : "#0b0b0b")};
 	color: #161c2d;
 	position: relative;
@@ -39,17 +36,12 @@ const StyledLaunches = styled.div`
     display: block;
     height: 5vh;
   }
-		/* padding: 6px; */
 		margin-top: 8px;
-		/* margin-bottom: 10px; */
-    /* height: 5vh; */
 		padding-left: 6px;
 		font-size: 17px;
 		border: none;
 		outline: none;
 	  width: 141px;
-    /* margin: 0; */
-    /* padding-top: 6px; */
 
 	}
 	
@@ -65,7 +57,7 @@ select.search-options {
   background-image:
     linear-gradient(45deg, transparent 50%, blue 50%),
     linear-gradient(135deg, blue 50%, transparent 50%),
-    linear-gradient(to right, skyblue, skyblue);
+    linear-gradient(to right, white, white);
   background-position:
     calc(100% - 20px) calc(1em + 2px),
     calc(100% - 15px) calc(1em + 2px),
@@ -99,7 +91,7 @@ select.search-options {
 	
 	.scroll {
 	@media screen and (max-width: 736px) {
-		width: 80%;
+		width: 86%;
   }
     overflow: scroll;
     height: 72vh;
