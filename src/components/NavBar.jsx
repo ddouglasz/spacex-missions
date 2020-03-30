@@ -9,8 +9,6 @@ const StyledNavBar  = styled.div`
   }
 	display: flex;
 	color: #fff;
-	/* height: 10vh; */
-	/* background: #4b5256; */
 	
 	a {
 		text-decoration: none;
@@ -21,7 +19,6 @@ const StyledNavBar  = styled.div`
 	}
 	
 	.nav {
-		padding: 2rem;
 		background-color: white;
 		width: 50%;
 		display: flex;
@@ -31,12 +28,12 @@ const StyledNavBar  = styled.div`
 	}
 	
 	.history {
-	background: ${({ route }) => route.split('/').includes("History") ? "#5476a3":  "linear-gradient(45deg,#1f3059,#1b2a4e 40%,#243869)" };
+	 background: ${({ route }) => route.split('/').includes("History") ? "#5476a3":  "linear-gradient(45deg,#1f3059,#1b2a4e 40%,#243869)" };
 
 	}
 	
 	.launches {
-	background: ${({ route }) => route.split('/').includes("Launches") ? "#5476a3": "linear-gradient(45deg,#1f3059,#1b2a4e 40%,#243869)"}
+ 	 background: ${({ route }) => route.split('/').includes("Launches") ? "#5476a3": "linear-gradient(45deg,#1f3059,#1b2a4e 40%,#243869)"}
 	}
 	
 	.company-name {

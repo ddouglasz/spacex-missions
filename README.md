@@ -1,3 +1,7 @@
+Simple React app using data from SpaceX missions. With this application, the user should learn the SpaceX history, see all the launches, and eventually select information to share.
+SpaceX maintains an open API documented in this page: https://docs.spacexdata.com/?version=latest
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
