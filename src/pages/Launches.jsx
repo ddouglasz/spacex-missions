@@ -133,11 +133,9 @@ class Launches extends React.Component {
 	
 	filterLaunches = (searchType,searchValue) => {
 		const { launches } = this.props;
-		return launches.filter((launch) => {
+		const uniqueLaunches = [...new Set(launches)]
+		return uniqueLaunches.filter((launch) => {
 		if(searchType === 'date'){
-		
-			console.log('launch.mission_name = ', launch.mission_name.toLowerCase())
-			console.log('launch_year = ', launch.launch_year)
 			return launch.launch_year === searchValue;
 		} 
 			return launch.mission_name.toLowerCase().includes(searchValue.toLowerCase());
@@ -146,7 +144,7 @@ class Launches extends React.Component {
 
 	render() {
 	  const { show, searchValue, searchType } = this.state;
-		const launches = this.props.launches;
+		const launches = [...new Set(this.props.launches)];
 		const allLaunches = searchValue ? this.filterLaunches(searchType,searchValue) : launches || [];
 		const displayAllLaunches = allLaunches.map(launch => (
 			<LaunchCard

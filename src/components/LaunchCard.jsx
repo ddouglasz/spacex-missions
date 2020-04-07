@@ -13,7 +13,7 @@ const StyledCard = styled.div`
 	margin-bottom: 1rem;
 	padding: 1rem;
 	justify-content: space-between;
-	align-items: center;
+	align-items: baseline;
 	
 	#launch-card-modal-btn {
 	@media screen and (max-width: 736px) {
