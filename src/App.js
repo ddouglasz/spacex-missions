@@ -1,25 +1,26 @@
-import React from "react";
-import { Route, Switch, Redirect } from "react-router";
-
-import HistoryInfo from './pages/HistoryInfo';
-import Launches from "./pages/Launches";
-import History from "./pages/History";
-import NavBar from "./components/NavBar";
-import Modal from './components/Modal';
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
-	return (
-		<div >
-			<NavBar />
-			<Switch>
-				<Route path="/" exact render={() => <Redirect to="/History" /> } />
-				<Route path="/Launches" exact component={Launches} />
-				<Route path="/Launches/:id" exact component={Modal} />
-				<Route path="/History" exact component={History} />
-				<Route path="/History/:id" exact component={HistoryInfo} />
-			</Switch>
-		</div>
-	);
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
 }
 
 export default App;
