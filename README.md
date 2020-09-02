@@ -24,4 +24,4 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 ### `yarn build`
 
 
-[Netlify App Link](https://spacex-01.netlify.app/History)
+[Netlify App Link](https://spacex-01.netlify.app)
