@@ -21,13 +21,13 @@ const StyledHistory = styled.div`
 	height: 90vh;
 
 	.scroll {
-	@media screen and (max-width: 736px) {
+	@media screen and (min-width: 736px) {
 		width: 80%;
   }
     overflow: scroll;
     height: 78vh;
     top: 5rem;
-    width: 70%;
+    // width: 70%;
     
   }
 

@@ -27,14 +27,15 @@ const StyledLaunches = styled.div`
 		font-size: 17px;
 		border: none;
 		outline: none;
+	}
+	@media screen and (min-width: 736px) {
+		 .search-input {
 		width: 20rem
-
+		 }
 	}
 	
 	.search-options {
 	 @media screen and (max-width: 736px) {
-    display: block;
-    height: 5vh;
   }
 		margin-top: 8px;
 		padding-left: 6px;
@@ -84,19 +85,18 @@ select.search-options {
 	.search-form {
 	 display: flex;
 	 @media screen and (max-width: 736px) {
-    display: block;
   }
 	 margin: 25px;
 	}
 	
 	.scroll {
-	@media screen and (max-width: 736px) {
-		width: 86%;
+	@media screen and (min-width: 736px) {
+		width: 80%;
   }
     overflow: scroll;
     height: 72vh;
     top: 5rem;
-    width: 70%;
+    // width: 70%;
     
   }
 
