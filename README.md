@@ -1,4 +1,4 @@
-Simple React app using data from SpaceX missions. With this application, the user should learn the SpaceX history, see all the launches, and eventually select information to share.
+Simple React and Redux Saga app using data from SpaceX missions API. With this application, the user should learn the SpaceX history, see all the launches, and eventually select information to share.
 SpaceX maintains an open API documented in this page: https://docs.spacexdata.com/?version=latest
 
 
