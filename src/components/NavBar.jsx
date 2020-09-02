@@ -41,6 +41,10 @@ const StyledNavBar  = styled.div`
 		margin-right: 10px;
 	}
 	
+	@media screen and (max-width: 400px) {
+		 .history-nav {
+		padding-left: 25px;
+		 }
 	
 `;
 
@@ -48,7 +52,7 @@ const NavBar = (props) => {
 	return (
 		<StyledNavBar route={props.location.pathname} >
 			<div data-testid="nav-elements" className="nav history" onClick={() => props.history.push("/History")}>
-					<span><h1><span className="company-name">SPACE-X</span>  HISTORY</h1></span>
+					<span className="history-nav"><h1><span className="company-name">SPACE-X</span>  HISTORY</h1></span>
 			</div>
 			<div data-testid="nav-elements" className="nav launches" onClick={() => props.history.push("/Launches")}>
 					<span><h1>LAUNCHES</h1></span>
